@@ -2,9 +2,14 @@
 
 This application demonstrates DAO and NFT tooling.
 
-It allows (1) the creation of a fitness club (organized as a DAO) and (2) the fee-based sign-up of new members to an existing club by means of an NFT minter.
+It allows:
+
+1. Creation of a fitness club (organized as a DAO) and 
+2. Fee-based sign-up of new members to an existing club by means of an NFT minter.
 
 Please refer to the Youtube video for links to the timestamped and minted DAO contracts.
+
+Below is a screenshot of the applications homepage on running on the Express backend:
 
 
 ![Fitness Ventures](https://github.com/codesport/fitness-club-dao/blob/master/frontend/src/images/girl2.png "Fitness Veptures Homepage")
@@ -14,7 +19,7 @@ Please refer to the Youtube video for links to the timestamped and minted DAO co
 This project explores a use case of utility and programmable ERC-721 tokens. Such tokens offer post issuance and programmable utility such as:
 
 1. Authenticating users to portions of a website
-2.  Provide membership certificates and credentials 
+2. Providing membership certificates and credentials 
 3. Distribution of ad hoc cash rewards or regular income
 
 ## More Details
