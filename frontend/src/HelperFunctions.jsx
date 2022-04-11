@@ -341,15 +341,34 @@ const showNetwork = (network) => {
 
 
 
-const getExternalData = async ( url ) => {
+const getExternalData = async ( axios, url ) => {
     const response = await axios.get(url);
     return response.data;
 }
 
+const getContractURI = async (axios, output ) =>{
+
+    output = await getExternalData(axios, output) 
+
+    //output = output.map( (singleItem, index) => { //https://linguinecode.com/post/how-to-use-map-react
+        console.log(output)
+        return(
+            [<li key="1"><strong>DAO Name:</strong> {output.name}</li>,
+            <li key="2"><strong>Website:</strong> {output.external_link}</li>,
+            <li key="3"><strong>Description:</strong> {output.description}</li>,
+            <li key="4"><strong>IPFS URI for Logo:</strong> {output.image}</li>,
+            <li key="5"><strong>Dev/Creator Fee on NFT Resales:</strong> { `${output.seller_fee_basis_points/100}%` }</li>,
+            <li key="6"><strong>Recipient:</strong> { output.fee_recipient }</li>]
+        )
+
+   // })
+
+
+}
 
 
 //Named Exports
-export { handleShutDown, handleWithdrawToOwner, handleSetTotalSupply, handleSetSalesPrice, showNetwork, handleDeployContract, handleMintNFT }
+export { handleShutDown, handleWithdrawToOwner, handleSetTotalSupply, handleSetSalesPrice, showNetwork, handleDeployContract, handleMintNFT, getExternalData, getContractURI }
 
 // /// Persist state after session reload: Hotload contract from sesion storage:
 
@@ -389,3 +408,24 @@ export { handleShutDown, handleWithdrawToOwner, handleSetTotalSupply, handleSetS
 //https://ethereum.stackexchange.com/questions/110924/how-to-properly-implement-a-contracturi-for-on-chain-nfts
 //https://docs.opensea.io/docs/contract-level-metadata
 //https://www.google.com/search?q=is+%22contractURI%22+an+erc-721+standard
+
+
+//Fetch Data APIS          
+// async ( output ) => {
+//     console.log(output)
+//     let response = await axios.get(output);
+
+//     console.log(reponse)
+//     command( response.data )
+// }
+
+// async (output) => {
+//     try{
+//         const response = await fetch(output)
+//         const data = await response.json()
+//         console.log(data)
+//         return(data)
+//     } catch(error){     
+//         console.log(error)
+//     }
+// } 

@@ -39,7 +39,7 @@ This project is a web-based tool for deploying an NFT-based DAO. This tool deplo
 3. Governor Contract
 
 ## How it's made
-The frontend uses React. The CSS classes were from a old, open sourced WordPress theme based on Bootstrap 3.
+
 
 On the backend, it relies upon node, Express.js, bash, and heavily upon Hardhat libraries which are called directly by Express.  Javascript and RegEx are used to sanitize user inputs to conform with smart contract name conventions.
 
@@ -50,4 +50,10 @@ Express is used to  call a custom bash script. The script serves as a workhorse 
 3. Token Pricing
 4. Contract URI (contract metadata consisting of description and logo)
 
-Hardhat is the the star of the show. It compiles and deploys the contracts to the block chain.
+Hardhat is the the star of the show. It compiles and deploys the contracts to the block chain. Hardhat has a JS library that allows for native non command line use on node. 
+
+### Frontend
+
+The frontend uses React functional components.  I began learning in React in August 2020 using a strict [Model-View-Controller (MVC)](https://github.com/codesport/admin-panel)] design pattern with a Class Component a the Controller.  With that pattern, I would send props downstream (prop-drilling) to my functional components. Facebook's React team now encourages devs to use Functional Components instead
+
+ The CSS classes are semi-custom.  The original CSS classes for contract read and write buttons are from [Chainllink's VRF2 Subscription Manager](https://vrf.chain.link/rinkeby/).  The website design is from [Illdy](https://colorlib.com/wp/themes/illdy/).  Illdy is an older (2016 - 2018), open sourced WordPress theme based on Bootstrap 3..

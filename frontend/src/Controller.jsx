@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import axios from "axios"
 import { FormDAO, FormMint, MaxSupplyForm, SalesPriceForm, InstallContractForm } from "./Forms"
-import { handleSetTotalSupply, handleSetSalesPrice, showNetwork, handleMintNFT, handleDeployContract } from "./HelperFunctions"
+import { handleSetTotalSupply, handleSetSalesPrice, showNetwork, handleMintNFT, handleDeployContract, getExternalData, getContractURI } from "./HelperFunctions"
 import { Boilerplate } from "./Boilerplate"
 import abi from './utils/EightTestToken.json';
 import splash from './images/splash.png'
@@ -307,10 +307,10 @@ const Controller = () => { //deplyed via remix: https://rinkeby.etherscan.io/add
 
 
     const getContractProperties = async ( get /* readonly contract function */, command /* name of state to update */ ,
-     message /* Status Message */, format=false /* eth || base64 */ ) => {
+     message /* Status Message */, format=false /* eth || base64 || fetch */ ) => {
         
         let output = ( await get)
-        
+      
         if (format === 'eth') {
 
             output =  ethers.utils.formatEther( output )
@@ -323,6 +323,12 @@ const Controller = () => { //deplyed via remix: https://rinkeby.etherscan.io/add
             output = atob(output1)
             command( <span style={{fontSize:".5em", margin:"0 2em", maxWidth:"44%", overflow:"scroll"}}> {output} </span> )
         
+        } else if (format === 'contractURI'){
+          
+            output = await getContractURI( axios, output)
+            command( <span style={{fontSize:".6em", margin:"0 2em", maxWidth:"50%"}}> {output} </span>)
+
+
         } else if (command != '') {
 
             command( `${message} ${output}` )
@@ -389,7 +395,7 @@ const Controller = () => { //deplyed via remix: https://rinkeby.etherscan.io/add
             <button className="adminButtonGreen kviMVi" onClick={ () => getContractProperties( provider.getBalance(contractAddress), setStatus, "The team's contract balance is: ", 'eth' ) }>Contract Cash Balance</button>
     
             getContractMetadataButton = 
-            <button className="adminButtonGreen kviMVi" onClick={ () => getContractProperties( contract.contractURI(), setStatus, '', 'base64' ) }>View Contract Metadata</button>
+            <button className="adminButtonGreen kviMVi" onClick={ () => getContractProperties( contract.contractURI(), setStatus, '', 'contractURI' ) }>View Contract Metadata</button>
 
             getContractNameButton = 
             <button className="adminButtonGreen kviMVi" onClick={ () => getContractProperties( contract.name(), setStatus, "Team's (contract's) name is: " ) }>View Contract Name</button>
