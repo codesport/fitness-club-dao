@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Rubik';
+  color: #254cdd;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* .mainContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 64px;
+} */
+
+.Minter {
+  max-width: 80vh;
+  max-height: 80vh;
+  padding: 60px 100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+
+input.main{ 
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  font-size: 16px;
+  width: 100%;
+  border-color: rgba(4, 4, 5, 0.1);
+  line-height: 32px;
+}
+
+input.main:focus {
+  outline: none;
+  border-color: rgba(4, 4, 5, 0.4);
+}
+
+input:focus, input:hover, textarea:focus, textarea:hover, input[type="number"]:hover, input[type="text"]:hover {
+  border-color: #d59a6e;
+  background-color: #2d1708;
+}
+
+
+
+input[type="text"], input[type="email"], input[type="number"], input[type="search"], textarea {
+  /* width: 100%;
+  padding: 5px 10px; */
+  border: 2px solid #d7d7d7;
+  /* outline: 0;
+  font-family: "Lato", sans-serif; */
+  font-weight: bold;
+  color: #ffffff;
+  /* resize: none;
+  display: block;
+  font-size: 16px;
+  line-height: 26px; */
+  background-color: #60432f;
+}
+
+
+#title {
+  padding-top: 32px;
+}
+
+.uploadFile {
+  border: 4px dashed rgba(4, 4, 5, 0.1);
+  border-radius: 16px;
+  text-align: center;
+  padding: 32px 60px;
+}
+
+#walletButton {
+  text-align: right;
+  float:right;
+  margin-bottom: 50px;
+  line-height: 16px;
+}
+
+
+
+/* Custom Styles */
+
+#status {
+  color:rgb(35, 162, 10);
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-top: 1em;
+  /* background-color: OldLace; 
+  margin-top: 16px;
+  padding: 8px */
+}
+
+.error {
+  color:rgb(211 87 75);
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-top: 1em;
+  /* background-color: OldLace; 
+  margin-top: 16px;
+  padding: 8px */
+}
+
+.adminButton{
+  border: 2px solid rgb(197 37 37 / 75%) !important;
+  color: rgb(210 55 55)!important;
+  font-weight: bold;
+}
+.adminButton:focus, .adminButton.focus {
+box-shadow: rgb(169 46 46 / 88%) 0px 0px 0px 4px, rgba(89, 29, 1, 0.32) 0px 12px 32px -12px !important;
+}
+
+.adminButton:hover, .adminButton.hover {
+  border-color: rgb(159 11 11)!important;
+  background-color: rgb(253 245 245)!important;
+  color: rgb(155 15 15)!important;
+  font-weight: bold;
+
+}
+
+.adminButtonGreen:hover, .adminButtonGreen.hover {
+  border-color: rgb(21 92 6)!important;
+  background-color: rgb(224 243 220)!important;
+  color: rgb(21 92 6)!important;
+  font-weight: bold;
+}
+
+.adminButtonGreen:focus, .adminButtonGreen.focus {
+  box-shadow: rgb(21 92 6) 0px 0px 0px 4px, rgb(35 162 10) 0px 12px 32px -12px !important;
+}
+.adminButtonGreen {
+  border: 2px solid rgb(63 145 58) !important;
+  color: rgb(35 162 10)!important;
+  font-weight: bold;
+}
+
+.center {
+  display:flex;
+  justify-content: center;
+}
+
+
+button, a, summary {
+  outline-offset: 2px;
+}
+
+
+.connectButton {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1em;
+}
+
+.enterRaffleButton {
+  display: flex;
+  justify-content: center;
+  margin:1.5em;
+}
+
+input[type=file] {
+  display: block;
+  color: white;
+  font-weight: bold;
+}
+
+.form-header{
+color:white;
+font-weight: bold;
+font-size:2em;
+
+}
+
+legend{
+
+  font-size: 3em;
+    color: darkblue
+}
+
+label{
+  color: white;
+    font-weight: 700;
+}
+select:hover{
+
+border-color: rgb(55, 91, 210);;
+    background-color: rgb(245, 247, 253);
+    color: rgb(26, 43, 107);
+}
+/* 
+border-color: rgb(26, 43, 107);
+    background-color: rgb(245, 247, 253);
+    color: rgb(55, 91, 210);;
+} */
+
+select{
+  text-align: center;
+  font-weight: bold;
+  margin-left: 5em;
+  margin-top: 1em;
+  color: rgb(55, 91, 210);
+  border-radius: 0.3em;
+  height: 3em;
+  font-size: 1em;
+  /* border-color: navy; 
+  /* border-width: 0.2em;
+      background: rgb(245, 247, 253)
+      font-weight: bold;
+      margin-left: 5em;
+      margin-top: 1em;*/
+  border: 2px solid rgb(26, 43, 107)
+}
+
+.white{
+  background-color: white;
+}
+
+input.totalSupply{
+  border-radius: 4px;
+  line-height: 1.7em;
+  border: 0.2em solid rgb(219 64 64);
+  margin: 0 1em;
+  background-color: white;
+  color:black
+}
+
+input.totalSupply:hover{
+
+  background-color: white;
+  
+}
+
+input.totalSupply:focus-visible {
+  outline-offset: 0px;
+  outline: rgb(72 10 10);
+  border-color: rgb(157 20 20);
+}
+
+@media screen and (min-width: 768px){
+.walletStatusContainer p {
+    font-size: 14px;
+    color: darkblue; /* #0c162c; */
+}}
+
+/* @media screen and (min-width: 768px){ */
+#wallet-network-info {
+    font-size:1.5em;
+    color: #0c162c;
+    display: flex;
+    margin: 0 16px 0 0;
+    align-items: center;
+    padding: 0.5em;
+    border-radius: 1.5em;
+    background-color: white;    
+}   
+/* } */
+
+img.network-logo-sm{
+  margin-right:8px;
+  width:1.1em
+}
+
+/*  https://smartcontract.imgix.net/icons/ethereum.svg?auto=compress%2Cformat*/
+
+/*  https://smartcontract.imgix.net/icons/polygon.svg?auto=compress%2Cformat
+
+.ethLogo{
+  background: no-repeat url(https://smartcontract.imgix.net/icons/ethereum.svg?auto=compress%2Cformat*);  
+}
+
+.polygonLogo{
+  background: no-repeat url(https://smartcontract.imgix.net/icons/polygon.svg?auto=compress%2Cformat*);  
+}
+
+.meterLogo{
+  background: no-repeat url(https://meter.io/assets/meter-logo-d.svg);  
+}
+ */
+/* const ethLogo = 'https://smartcontract.imgix.net/icons/ethereum.svg?auto=compress%2Cformat*';
+const polygonLogo = 'https://smartcontract.imgix.net/icons/polygon.svg?auto=compress%2Cformat*';
+const meterLogo = 'https://meter.io/assets/meter-logo-d.svg' */
+
+
+/* https://stackoverflow.com/a/11603895/946957 https://stackoverflow.com/questions/10589304/how-to-add-css-for-specific-input-type-text*/
+
+.status-button {
+  border-radius: 3em !important;
+}
+.green-button {
+  border: 3px solid #fff;
+  /* width: auto;
+  height: 63px; */
+  line-height:2.5em; /* 63px; */
+  background: #008000;
+  /* margin: 0 15px; */
+  padding: 0 2em;
+  display: inline-block;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  /* min-width: 242px; */
+}
+
+.green-button:hover {
+  background: #044a04;
+}
+
+.kviMVi {
+  /* display: flex; */
+    margin: 0px;
+    appearance: none;
+    display: inline-block;
+    text-align: center;
+    border: 2px solid rgb(55, 91, 210);
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    color: rgb(55, 91, 210);
+    padding: 8px 24px;
+    border-radius: 4px;
+    box-shadow: rgb(12 22 44 / 32%) 0px 12px 32px -12px;
+    /* width: 10em; */
+    
+}
+.kviMVi:active, .kviMVi.active {
+  border-color: rgb(12, 22, 44);
+  background-color: rgb(245, 247, 253);
+  color: rgb(12, 22, 44);
+}
+
+.kviMVi:focus, .kviMVi.focus {
+  outline: 0px;
+  color: rgb(26, 43, 107);
+  border-color: rgb(26, 43, 107);
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(55 91 210 / 88%) 0px 0px 0px 4px, rgb(12 22 44 / 32%) 0px 12px 32px -12px;
+}
+
+.kviMVi:hover, .kviMVi.hover {
+    border-color: rgb(26, 43, 107);
+    background-color: rgb(245, 247, 253);
+    color: rgb(26, 43, 107);
+}
+@media screen and (min-width: 768px){
+    .kviMVi {
+      width: unset;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .adminButton.kviMVi {
+    margin-left: 4em;
+  }
+}
+
+
+ol.output-list {
+  
+  font-size: .7em; line-height: 2em; margin-top: 4em; 
+
+}
+
+.output-list a{
+  color: blue;
+}
+/******  *****/
+
+#header .top-header {
+  position: relative;
+  z-index: 3;
+  background-color: rgb(0 0 0 / 59%);
+}
+
+/* body{
+
+background-image: url(../src/images/fitness-girl1.webp);
+
+}   */
+
+.shade{
+  background-color: rgb(22 20 20 / 63%);
+  padding: 2em;
+
+}
+
+.pad2em{
+  padding:2em;
+}
+
+fieldset{
+
+  background-color: rgb(22 20 20 / 63%);
+  padding: 3em;
+
+}
+#header.header-front-page {
+  background-image: url(../src/images/fitness-girl1.webp);
+  background-attachment: fixed;
+}
+#header.header-front-page .bottom-header .header-button-one {
+  background-color: rgba( 0, 0, 0, .3 );
+}
+#header.header-front-page .bottom-header .header-button-one:hover {
+  background-color: rgba( 0, 0, 0, .1 );
+}
+#header.header-front-page .bottom-header h1 {
+  color: #ffffff;
+}
+#header.header-front-page .bottom-header .section-description {
+  color: #ffffff;
+}
+.tree-name a {
+   text-transform: uppercase;
+  /* 3em*/
+   font-size: 2.2em !important;
+   color:#fff !important;
+  /*text-decoration: none !important;
+  */
+}
+.tree-bars{
+  text-decoration: overline;
+}
+h1{
+   font-size: 3.5em !important;
+   line-height: 1.2em !important;
+}
+#header .bottom-header .header-button-two {
+  background: #008000 
+}
+
+#header .bottom-header .header-button-two:hover {
+
+background: #044a04
+}
+
+#header .bottom-header {
+   padding-top: 8em !important;
+}
+.img-responsive{
+   max-width:140% !important 
+}
+#header .bottom-header .section-description {
+   letter-spacing: 0.0625em;
+   margin-top: -1em;
+   font-size: 17px;
+   font-weight: 600 !important;
+}
