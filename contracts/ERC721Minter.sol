@@ -55,7 +55,7 @@ contract TestToken is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Owna
         return contractMetadata;
     }
 
-    function updateContractURI( string memory _contractMetadata ) public  onlyOwner{
+    function setContractURI( string memory _contractMetadata ) public  onlyOwner{
         contractMetadata = _contractMetadata;
     }
 
