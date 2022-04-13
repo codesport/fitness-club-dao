@@ -1,3 +1,15 @@
+**Attribution:** This dApp and its accompanying "litepaper" were created by Marcos (Marcus) His GitHub username is [codesport](https://github.com/codesport/)
+
+# Navigation
+
+* [Overview](#overview)
+* [Background: A Novel Use Case for ERC-721 Tokens](#background-a-novel-use-case-for-erc-721-tokens)
+* [How It Works](#how-it-works)
+* [How It Is Made](#how-its-made)
+* [Frontend](#frontend)
+* [Litepaper](https://github.com/codesport/fitness-club-dao/blob/metamask-signer/4-11-2022-Fitness-Ventures-litepaper.pdf)
+
+
 # OVERVIEW
 
 This application demonstrates DAO and NFT tooling.
@@ -12,7 +24,7 @@ Please refer to the Youtube video for links to the timestamped and minted DAO co
 Below is a screenshot of the applications homepage on running on the Express backend:
 
 
-![Fitness Ventures](https://github.com/codesport/fitness-club-dao/blob/master/frontend/src/images/girl2.png "Fitness Veptures Homepage")
+![Fitness Ventures](https://github.com/codesport/fitness-club-dao/blob/master/frontend/src/images/girl2.png "Fitness Ventures Homepage")
 
 ## Background: A Novel Use Case for ERC-721 Tokens 
 
@@ -22,7 +34,7 @@ This project explores a use case of utility and programmable ERC-721 tokens. Suc
 2. Providing membership certificates and credentials 
 3. Distribution of ad hoc cash rewards or regular income
 
-## More Details
+## How It Works
 
 Fitness club  memberships are conveyed by "hot-minting" an ERC-721 token (NFTs) from the fitness club. By "hot-minting" the NFTs are minted on-demand and are not pre-generated. 
 
@@ -34,17 +46,32 @@ Through the form-based UI, club creators are able customize:
 4. Member Cost (of issuing memberships as NFTs)
 5. Description
 
+This project imports, uses, and customizes several Open Zeppellin templates to build a DAO based on audited code and accepted industry best practices. 
 
-## How It Works
+Customizations were made to the minter contract order to:
 
-This project is a web-based tool for deploying an NFT-based DAO. This tool deploys 3  contracts that permit issuance, governance, and treasury operations. Specifically it customizes and deploys
+1. Set token sales price and enforce fees for minting:  `receivePayThenMint()`, `setSalesPrice()`, `getSalesPrice()`
+2. Implement getter and setters for `contractURI`.  `contractURI` is used by [Opensea(https://docs.opensea.io/docs/contract-level-metadata)] to auto-populate metadata for a collection
+3. Customize maximum token supply: `setTotalSupply()` and `getTotalSupply()`
+4. Block token minting when maximum token supply is reached: `require( _tokenIdCounter.current() < maxSupply, "Max supply of NFTs exhausted");`
+5. Receive Donations and other funds: `receive()` and `receiveDonations()`
+6. Expose next `tokenID` for printing on minted NFT: `getTokenCurrentTokenID()`
+
+
+Additionally, several debugging and "exit" functions were included for testing purposes. These functions will be moved after through testing of the money transfer functionality using the Governance and Timelock contracts (e.g., voting to withdraw funds).
+
+1. `withdraw()`
+2. `deleteContract()`: A self-destruct solely for the purpose of testing on testnets
+
+
+This project is a web-based tool for deploying an NFT-based DAO. This tool deploys 3  contracts that permit issuance, governance, and treasury operations. Specifically it customizes and deploys:
 
 1. ERC721 Token Minter
 2. Timelock Controller
-3. Governor Contract
+3. Governor 
 
-## How it's made
 
+## How It's Made
 
 On the backend, it relies upon node, Express.js, bash, and heavily upon Hardhat libraries which are called directly by Express.  Javascript and RegEx are used to sanitize user inputs to conform with smart contract name conventions.
 
