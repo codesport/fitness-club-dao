@@ -1,4 +1,4 @@
-**Attribution:** This dApp and its accompanying "litepaper" were created by Marcos (Marcus) A. B. His GitHub username is [codesport](https://github.com/codesport/)
+**Attribution:** This dApp and its accompanying "litepaper" were created by **Marcos (Marcus) A. B.** His GitHub username is [codesport](https://github.com/codesport/)
 
 # Navigation
 
