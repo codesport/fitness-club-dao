@@ -429,3 +429,22 @@ export { handleShutDown, handleWithdrawToOwner, handleSetTotalSupply, handleSetS
 //         console.log(error)
 //     }
 // } 
+
+//Deploy from frontend using ethers
+
+//no answers, button question articulated well: https://ethereum.stackexchange.com/q/112866/3506
+
+//compile using hardhat as standalone library directly from node (i.e., no cli) on the backend:
+// https://hardhat.org/guides/scripts.html#standalone-scripts-using-hardhat-as-a-library
+// await hre.run('compile');
+
+//https://docs.ethers.io/v4/api-contract.html#creating-a-contract-factory
+// new ethers . ContractFactory ( abi.abi , abi.bytecode [ , signer ] )
+
+//https://docs.ethers.io/v5/api/contract/example/#example-erc-20-contract--deploying-a-contract
+/*
+
+const factory = new ethers.ContractFactory(abi, bytecode, signer)
+const contract = await factory.deploy(parseUnits("100"));
+await contract.deployTransaction.wait();
+*/

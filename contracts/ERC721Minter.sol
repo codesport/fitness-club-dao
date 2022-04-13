@@ -55,7 +55,7 @@ contract TestToken is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Owna
         return contractMetadata;
     }
 
-    function updateContractURI( string memory _contractMetadata ) public  onlyOwner{
+    function setContractURI( string memory _contractMetadata ) public  onlyOwner{
         contractMetadata = _contractMetadata;
     }
 
@@ -118,16 +118,13 @@ contract TestToken is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Owna
      function receivePayThenMint(address to, string memory _tokenURI) payable public {    
         require(msg.value == salesPrice, "Please pay the correct sales price");
         safeMint(to, _tokenURI);
-        // balance += msg.value; // keep track of balance (in WEI)
     }  
 
 
     function safeMint(address to,  string memory uri) private {
         //uint256 totalSupply = totalSupply(); https://ethereum.stackexchange.com/q/117693
-        //TODO: Why does totalSupply() double on every mint? totalSupply(); does not give what's expected. This was observed when testing in remix.
 
         require( _tokenIdCounter.current() < maxSupply, "Max supply of NFTs exhausted"); //custom hack see comment obove
-        
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);  //TODO is tokenId zero-indexed?
