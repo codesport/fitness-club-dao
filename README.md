@@ -7,7 +7,7 @@
 * [How It Works](#how-it-works)
 * [How It Is Made](#how-its-made)
 * [Frontend](#frontend)
-* [Litepaper](https://github.com/codesport/fitness-club-dao/blob/metamask-signer/4-11-2022-Fitness-Ventures-litepaper.pdf)
+* [Litepaper](https://github.com/codesport/fitness-club-dao/blob/master/4-11-2022-Fitness-Ventures-litepaper.pdf)
 
 
 # OVERVIEW
