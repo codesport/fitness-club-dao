@@ -10,7 +10,7 @@
 * [Litepaper](https://github.com/codesport/fitness-club-dao/blob/master/4-11-2022-Fitness-Ventures-litepaper.pdf)
 
 
-# OVERVIEW
+# Overview
 
 This application demonstrates DAO and NFT tooling.
 
@@ -21,7 +21,7 @@ It allows:
 
 Please refer to the Youtube video for links to the timestamped and minted DAO contracts.
 
-Below is a screenshot of the applications homepage on running on the Express backend:
+Below is a screenshot of the application's homepage running on the Express backend:
 
 
 ![Fitness Ventures](https://github.com/codesport/fitness-club-dao/blob/master/frontend/src/images/girl2.png "Fitness Ventures Homepage")
@@ -51,7 +51,7 @@ This project imports, uses, and customizes several Open Zeppellin templates to b
 Customizations were made to the minter contract order to:
 
 1. Set token sales price and enforce fees for minting:  `receivePayThenMint()`, `setSalesPrice()`, `getSalesPrice()`
-2. Implement getter and setters for `contractURI`.  `contractURI` is used by [Opensea(https://docs.opensea.io/docs/contract-level-metadata)] to auto-populate metadata for a collection
+2. Implement getter and setters for `contractURI`:  used by [Opensea](https://docs.opensea.io/docs/contract-level-metadata) to auto-populate metadata for a collection
 3. Customize maximum token supply: `setTotalSupply()` and `getTotalSupply()`
 4. Block token minting when maximum token supply is reached: `require( _tokenIdCounter.current() < maxSupply, "Max supply of NFTs exhausted");`
 5. Receive Donations and other funds: `receive()` and `receiveDonations()`
@@ -88,4 +88,4 @@ Hardhat is the the star of the show. It compiles and deploys the contracts to th
 
 The frontend uses React functional components.  I began learning React in August 2020 using a strict [Model-View-Controller (MVC)](https://github.com/codesport/admin-panel)] design pattern with a Class Component a the Controller.  With that pattern, I would send props downstream (prop-drilling) to my functional components. Facebook's React team now encourages devs to use Functional Components instead.
 
- The CSS classes are semi-custom.  The original CSS classes for contract read and write buttons are from [Chainlink's VRF2 Subscription Manager](https://vrf.chain.link/rinkeby/).  The website design is from [Illdy](https://colorlib.com/wp/themes/illdy/).  Illdy is an older (2016 - 2018), open sourced WordPress theme based on Bootstrap 3.
+ The CSS classes are semi-custom.  The base CSS classes for the read and write buttons are from [Chainlink's VRF2 Subscription Manager](https://vrf.chain.link/rinkeby/).  The website design is from [Illdy](https://colorlib.com/wp/themes/illdy/).  Illdy is an older (2016 - 2018), open sourced WordPress theme based on Bootstrap 3.
