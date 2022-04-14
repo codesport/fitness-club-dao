@@ -440,11 +440,16 @@ export { handleShutDown, handleWithdrawToOwner, handleSetTotalSupply, handleSetS
 
 //https://docs.ethers.io/v4/api-contract.html#creating-a-contract-factory
 // new ethers . ContractFactory ( abi.abi , abi.bytecode [ , signer ] )
-
-//https://docs.ethers.io/v5/api/contract/example/#example-erc-20-contract--deploying-a-contract
 /*
+https://docs.ethers.io/v5/api/contract/example/#example-erc-20-contract--deploying-a-contract
+
 
 const factory = new ethers.ContractFactory(abi, bytecode, signer)
 const contract = await factory.deploy(parseUnits("100"));
 await contract.deployTransaction.wait();
+
+Patrick Question: https://forum.openzeppelin.com/t/governance-contract-or-timelock-contract-which-comes-first/17048/3
+
+Built in transfer function in: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts//access/Ownable.sol
+
 */
