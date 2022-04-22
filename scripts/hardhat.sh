@@ -55,12 +55,13 @@ old2="TestGovernor"
 new2=${1}Governor
 sed -i "s/$old2/$new2/" "$file2"
 
-cp ../contracts/TimelockController.sol ../contracts/TimelockController-${6}.sol
+# cp ../contracts/TimelockController.sol ../contracts/TimelockController-${6}.sol
+cp ../contracts/TimeLock.sol ../contracts/TimeLock-${6}.sol
 
-file3="../contracts/TimelockController-${6}.sol"
+file3="../contracts/TimeLock-${6}.sol"
 
-old3="TimelockController"
-new3=${1}TimelockController
+old3="TimeLock"
+new3=${1}TimeLock
 sed -i "s/$old3/$new3/" "$file3"
 
 # Deploy DAO
