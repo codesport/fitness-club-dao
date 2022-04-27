@@ -1,13 +1,17 @@
 /**
- * references:
+ * References to Understand Timelock and Governance Contracts:
+ * 
  * @link https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts//access/Ownable.sol
- * 
- * https://drdr-zz.medium.com/analysis-of-oz-timelockcontroller-security-vulnerability-patch-23da47a3c158
- * 
- * https://ethereum.stackexchange.com/questions/111444/what-is-this-function-do-internally-of-time-lock-controller-of-solidity
- * 
+ * @link https://drdr-zz.medium.com/analysis-of-oz-timelockcontroller-security-vulnerability-patch-23da47a3c158
+ * @link https://ethereum.stackexchange.com/questions/111444/what-is-this-function-do-internally-of-time-lock-controller-of-solidity
  * @link https://ethereum.stackexchange.com/a/48726/3506 https://ethereum.stackexchange.com/a/35667/3506
  * 
+ *  Configure TimelockController
+ * 
+ * ex 1a: https://forum.openzeppelin.com/t/governance-contract-or-timelock-contract-which-comes-first/17048/3
+ * ex 1b: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/e6f26b46fc8015f1b9b09bb85297464069302125/test/governance/extensions/GovernorTimelockControl.test.js#L31-L37
+ * ex 2a: https://github.com/PatrickAlphaC/dao-template/blob/main/deploy/04-setup-governance-contracts.ts
+ * ex 2b:  https://docs.openzeppelin.com/defender/guide-timelock-roles
  * 
  */
 
@@ -17,6 +21,7 @@ const { ethers } = require("hardhat")
 
 const contractDepositWhenDeployed = "0.01"
 const ADDRESS_ZERO = "0x0000000000000000000000000000000000000000"
+
 describe("Test Deploying a DAO on Behalf of a Customer", function() {//name to the set of tests we are going to perform
 
     let minter_contract //declare as global variable s.t. is accessible to other tests
@@ -103,8 +108,6 @@ describe("Test Deploying a DAO on Behalf of a Customer", function() {//name to t
     })
 
 
-
-
     it("2.  Should Deploy and Configure TimeLock As Owner & Deployer.", async function(){
 
         const factory = await hre.ethers.getContractFactory( "TimeLock" ); //from: deployer,
@@ -113,7 +116,6 @@ describe("Test Deploying a DAO on Behalf of a Customer", function() {//name to t
         const contract = await factory.deploy( 3600, [owner.address, /* admin */], [ owner.address, /*admin*/]);
         await contract.deployed();
              
-
 
     })
 
@@ -140,14 +142,13 @@ describe("Test Deploying a DAO on Behalf of a Customer", function() {//name to t
         console.log("TimeLock deployed TO:", timeLock_contract.address);
 
         //2. Now deploy governor
-        factory = await hre.ethers.getContractFactory( "TestGovernor");  //voting delay, voting period, proposa threshold
+        factory = await hre.ethers.getContractFactory( "TestGovernor");  //voting delay, voting period, proposal threshold
         const governor_contract = await factory.deploy( minter_contract.address, timeLock_contract.address );
         await governor_contract.deployed();    
         console.log("Governor deployed TO: ", governor_contract.address);
 
 
         //3. Config TimeLock Governance // normal setup: governor is proposer, everyone is executor, timelock is its own admin
-
 
         let proposer_role = await timeLock_contract.PROPOSER_ROLE()
         let admin_role = await timeLock_contract.TIMELOCK_ADMIN_ROLE()
@@ -157,7 +158,7 @@ describe("Test Deploying a DAO on Behalf of a Customer", function() {//name to t
         console.log( "TIMELOCK_ADMIN_ROLE: " +  admin_role )
         console.log( "EXECUTOR_ROLE: " +  executor_role ) 
 
-        //TimeLock is https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.5.0/contracts/access/AccessControl.sol
+        //TimeLock is AccessControl: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.5.0/contracts/access/AccessControl.sol
         const proposerTx = await timeLock_contract.grantRole( proposer_role,  governor_contract.address)
         await proposerTx.wait()
 
@@ -168,14 +169,6 @@ describe("Test Deploying a DAO on Behalf of a Customer", function() {//name to t
         await adminRevokeTx.wait()
 
 
-
-
-        //3. Config Governor: // normal setup: governor is proposer, everyone is executor, timelock is its own admin
-
-            //ex 1a: https://forum.openzeppelin.com/t/governance-contract-or-timelock-contract-which-comes-first/17048/3
-            //ex 1b: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/e6f26b46fc8015f1b9b09bb85297464069302125/test/governance/extensions/GovernorTimelockControl.test.js#L31-L37
-            //ex 2: https://github.com/PatrickAlphaC/dao-template/blob/main/deploy/04-setup-governance-contracts.ts
-            //https://docs.openzeppelin.com/defender/guide-timelock-roles
 
 
     })    

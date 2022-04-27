@@ -24,7 +24,7 @@ app.use(express.static("public"));
 
 
 app.get("/api", (req, res) => {
-    res.json({ message: "<b>Express JS Status: Connected to Node-Express Backend! Hardhat is Using: " + process.env.HARDHAT_NETWORK });
+    res.json({ message: "Express JS Status: Connected to Node-Express Backend! Hardhat is Using: " + process.env.HARDHAT_NETWORK });
   });
 
  
