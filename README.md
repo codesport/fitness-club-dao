@@ -1,7 +1,7 @@
 
-* **NB:** To view the original master branch from April 10 please go here:  https://github.com/codesport/fitness-club-dao/tree/master
+* **NB:** To view the original master branch from **April 10** please go here:  https://github.com/codesport/fitness-club-dao/tree/master
 
-* **NB:** You're currently viewing the work-in-progress branch `transfer-ownership`  branch
+* **NB:** You're currently viewing the latest work-in-progress branch: `transfer-ownership`  
 
 * **Attribution:** This dApp and its accompanying "litepaper" were created by **Marcos (Marcus) A. B.** His GitHub username is [codesport](https://github.com/codesport/)
 
