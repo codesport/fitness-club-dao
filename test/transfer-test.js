@@ -136,7 +136,7 @@ describe("Test Deploying a DAO on Behalf of a Customer", function() {//name to t
     it("3. Should Deploy and Configure Governor", async function(){
 
         //1. Deploy timelock
-        let factory = await hre.ethers.getContractFactory( "BetaTeamTimelockController" ); //from: deployer,
+        let factory = await hre.ethers.getContractFactory( "TimeLock" ); //from: deployer,
         const timeLock_contract = await factory.deploy( 3600, [owner.address, customer1.address/* admin */], [ owner.address, customer1.address /*admin*/] );
         await timeLock_contract.deployed();
         console.log("TimeLock deployed TO:", timeLock_contract.address);

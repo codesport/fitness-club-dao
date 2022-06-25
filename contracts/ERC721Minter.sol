@@ -18,7 +18,6 @@ contract TestToken is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Owna
 
     //updatable state (global) variables 
     uint256 public salesPrice;
-    // uint256 public balance;
     uint256 public maxSupply;  
     string  public contractMetadata;// Experimental: openSea contract-level metadata  
 
@@ -30,19 +29,6 @@ contract TestToken is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Owna
 
    }
 
-
-    //custom fuctions
-    // function getMaxSupply() public view returns(uint256){
-    //     return maxSupply;
-    // }
-
-    // function getBalance() public view returns(uint256){
-    //     return balance;
-    // } 
-
-    // function getSalesPrice() public view returns(uint256){
-    //     return salesPrice;
-    // } 
 
     //custom fuctions
 

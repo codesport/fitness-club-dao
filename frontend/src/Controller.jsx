@@ -43,7 +43,7 @@ const Controller = () => { //deplyed via remix: https://rinkeby.etherscan.io/add
      * @link https://stackoverflow.com/a/55266240
      */
     const [contractABI, setContractABI] = useState( sessionStorage.getItem("contractAddress") ?  JSON.parse( sessionStorage.getItem('abi') ): abi.abi  )
-    const [contractAddress, setContractAddress] = useState( sessionStorage.getItem("contractAddress") ? sessionStorage.getItem('contractAddress') : "0x001fd467D74CC8c3c2e4884a1810D06F082aeFe3")
+    const [contractAddress, setContractAddress] = useState( sessionStorage.getItem("contractAddress") ? sessionStorage.getItem('contractAddress') : "0x71b5f510e1641e9fbf346692a973c06d93bbe1ab")
 
     const [newChainId, setNewChainId] = useState( sessionStorage.getItem("contractAddress") ? sessionStorage.getItem('chainId') : 80001 )
     const [contract, setContract] = useState( new ethers.Contract(contractAddress, contractABI, signer))

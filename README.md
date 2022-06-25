@@ -1,6 +1,4 @@
 
-* **NB:** To view the original master branch from **April 10** please go here:  https://github.com/codesport/fitness-club-dao/tree/master
-
 * **NB:** You're currently viewing the latest work-in-progress branch: `transfer-ownership`  
 
 * **Attribution:** This dApp and its accompanying "litepaper" were created by **Marcos (Marcus) A. B.** His GitHub username is [codesport](https://github.com/codesport/)
@@ -51,7 +49,7 @@ Through the form-based UI, club creators are able customize:
 4. Member Cost (of issuing memberships as NFTs)
 5. Description
 
-This project imports, uses, and customizes several Open Zeppellin templates to build a DAO based on audited code and accepted industry best practices. 
+This project imports, uses, and customizes several OpenZeppelin templates to build a DAO based on audited code and accepted industry best practices. 
 
 Customizations were made to the minter contract order to:
 

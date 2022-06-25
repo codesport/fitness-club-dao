@@ -47,12 +47,12 @@ sed -i "s/$priceOld2/$priceNew2/" "$file1"
 sed -i "s/$supply_old/$supply_new/" "$file1"
 
 
-cp ../contracts/Governor.sol ../contracts/Governor-${6}.sol
+cp ../contracts/OZGovernor.sol ../contracts/OZGovernor-${6}.sol
 
-file2="../contracts/Governor-${6}.sol"
+file2="../contracts/OZGovernor-${6}.sol"
 
-old2="TestGovernor"
-new2=${1}Governor
+old2="OZGovernor"
+new2=${1}OZGovernor
 sed -i "s/$old2/$new2/" "$file2"
 
 # cp ../contracts/TimelockController.sol ../contracts/TimelockController-${6}.sol
