@@ -1,8 +1,7 @@
 
-* **NB:** You're currently viewing the latest work-in-progress branch: `transfer-ownership`  
-
 * **Attribution:** This dApp and its accompanying "litepaper" were created by **Marcos (Marcus) A. B.** His GitHub username is [codesport](https://github.com/codesport/)
 
+* **NB:** The `transfer-ownership`  test branch has been merged with the master branch. `transfer-ownership` and frontend-deploy branches are now outdated and may be deleted soon.
 
 # Navigation
 
@@ -12,7 +11,6 @@
 * [How It Works](#how-it-works)
 * [How It Is Made](#how-its-made)
 * [Frontend](#frontend)
-* [Litepaper](https://github.com/codesport/fitness-club-dao/blob/master/4-11-2022-Fitness-Ventures-litepaper.pdf)
 
 
 # Unit Testing Results: One-Stop DAO Launchpad and Governance Destination
