@@ -32,7 +32,7 @@ Below is a screenshot of the application's homepage running on the Express backe
 # Unit Testing Results: One-Stop DAO Launchpad and Governance Destination
 
 
-![Unit Testing](https://github.com/codesport/fitness-club-dao/blob/transfer-ownership/frontend/src/images/6-25-2022-fitness-ventures-unit-tests.png?raw=true "DAO Governance Unit Testing")
+![Unit Testing](https://github.com/codesport/fitness-club-dao/blob/master/frontend/src/images/6-25-2022-fitness-ventures-unit-tests.png?raw=true "DAO Governance Unit Testing")
 
 In unit tests `ERC721Minter.sol` and `Box.sol` were transferred to TimeLock. This forced Goverance (i.e., voting) to mint new NFTs and interact with Box contract. For `Box.sol`, Funds were deposited and withdrawn, and a public state variable was changed.
 
