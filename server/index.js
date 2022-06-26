@@ -7,8 +7,8 @@ const fs         = require("fs");
 
 //import the script that does the work
 const mint      = require("./mint-nft")
-const deploy    = require("./build-contracts")
-const hardhat   = require("../scripts/deploy-dao")
+const build    = require("./build-contracts") //sanitizes user inputs, assigns contracts' names spec'd by user inputs, calls hardhat.sh to do contract renaming 
+const deploy   = require("../scripts/deploy-dao") //deploy contracts to blockchain
  
 const storage    = multer.memoryStorage()
 const upload     = multer({ storage: storage })
@@ -24,7 +24,7 @@ app.use(express.static("public"));
 
 
 app.get("/api", (req, res) => {
-    res.json({ message: "<b>Express JS Status: Connected to Node-Express Backend! Hardhat is Using: " + process.env.HARDHAT_NETWORK });
+    res.json({ message: "Express JS Status: Connected to Node-Express Backend! Hardhat is Using: " + process.env.HARDHAT_NETWORK });
   });
 
  
@@ -50,12 +50,13 @@ app.post('/deploy-dao', upload.single('file'), async (req, res, next) => {
     console.log('Deploying to: ' + process.env.HARDHAT_NETWORK)
 
     console.log(req.file, req.body)
-    const [owner, description, minterName, timelockName, governorName] = await deploy.buildDAO(req.body.owner, req.body.name, req.body.ticker, req.body.description, req.body.price, req.body.supply )
+    //NB: owner = address of connected metamask account 
+    const [owner, description, minterName, timelockName, governorName] = await build.buildDAO(req.body.owner, req.body.name, req.body.ticker, req.body.description, req.body.price, req.body.supply )
 
     //console.log("Read Payload data for building dao Express.js: " + payload) //console.log(req.file)
 
                                     //(owner, description, minterName, timelockName, governorName, image
-    const publish = await hardhat.main( owner, description, minterName, timelockName, governorName, req.file )
+    const publish = await deploy.main( owner, description, minterName, timelockName, governorName, req.file )
   
     console.log(publish)
 

@@ -11,6 +11,7 @@ const execFile = util.promisify(require('child_process').execFile);
 
     const regex = /[^A-Za-z0-9\s'\.\!]/g;
 
+    //specify name rules
     const minterNameRegex = /[^A-Za-z0-9]/g;
     const DAOnameRegex = /[^A-Za-z0-9\s']/g
     const tokenTickerRegex = /[^A-Za-z0-9]/g
@@ -19,6 +20,7 @@ const execFile = util.promisify(require('child_process').execFile);
 
     const timestamp = new Date().getTime();
      
+    //implement name rules 
     const minterName = name.replace(minterNameRegex,"");
     const daoName = name.replace(DAOnameRegex,"")
     const symbol  = ticker.replace(tokenTickerRegex,"").toUpperCase()
@@ -36,8 +38,8 @@ const execFile = util.promisify(require('child_process').execFile);
     };
 
      
-    const timelockName = `${minterName}TimelockController`
-    const governorName = `${minterName}Governor`
+    const timelockName = `${minterName}TimeLock`
+    const governorName = `${minterName}OZGovernor`
 
 
     return[owner, description, minterName, timelockName, governorName ]

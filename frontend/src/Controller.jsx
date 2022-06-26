@@ -35,13 +35,15 @@ const Controller = () => { //deplyed via remix: https://rinkeby.etherscan.io/add
      * set the default value for the state property using a ternary 
      * 
      * mumbai: eight test: 0x001fd467D74CC8c3c2e4884a1810D06F082aeFe3
-     * mumbai: alpha 0x09b97b93a02131A0C0fF9B502bE7ecf8040455a8
+     * mumbai: beta: 0x71b5f510e1641e9fbf346692a973c06d93bbe1ab
+     *         alpha 0x09b97b93a02131A0C0fF9B502bE7ecf8040455a8   
+     *         alpha: 0x604e16d7a5f83c2c0354ac2a16fc1c6b8a516f67
      * meter: 0xa2aD607291443242924CA56C55aD4FB030A344d1
      * 
      * @link https://stackoverflow.com/a/55266240
      */
     const [contractABI, setContractABI] = useState( sessionStorage.getItem("contractAddress") ?  JSON.parse( sessionStorage.getItem('abi') ): abi.abi  )
-    const [contractAddress, setContractAddress] = useState( sessionStorage.getItem("contractAddress") ? sessionStorage.getItem('contractAddress') : "0x001fd467D74CC8c3c2e4884a1810D06F082aeFe3")
+    const [contractAddress, setContractAddress] = useState( sessionStorage.getItem("contractAddress") ? sessionStorage.getItem('contractAddress') : "0x71b5f510e1641e9fbf346692a973c06d93bbe1ab")
 
     const [newChainId, setNewChainId] = useState( sessionStorage.getItem("contractAddress") ? sessionStorage.getItem('chainId') : 80001 )
     const [contract, setContract] = useState( new ethers.Contract(contractAddress, contractABI, signer))

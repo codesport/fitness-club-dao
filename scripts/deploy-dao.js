@@ -2,7 +2,7 @@
  * 
  * Called by Express.js via index.js
  * 
- * Network to connect to is opiionated in .env with HARDHAT_NETWORK
+ * Network to connect to is opionated in .env with HARDHAT_NETWORK
  * @link https://hardhat.org/guides/scripts.html#hardhat-arguments 
  *
  * 
@@ -13,17 +13,17 @@ const hre = require("hardhat");
 const ethers = hre.ethers;
 const axios = require("axios");
 
-const main = async ( owner, description, minterName, timelockName, governorName, image /* , admin*/  ) =>{
+
+//TODO:  Change all references to 'owner' to 'customer'
+const main = async ( customerAddress, description, minterName, timelockName, governorName, image /* , admin*/  ) =>{
 
 	try{
 
-		console.log( " Hardhat is Now Compiling Smart Contracts" )
-		// return
-		await hre.run("compile");
-
-		// const CONTRACT_NAME = "EightTestToken"
 		// const [owner] = await hre.ethers.getSigners();
-		// const factory = await hre.ethers.getContractFactory( CONTRACT_NAME );
+		// console.log('Owner of Deployement Process: ' + owner )
+		console.log( " Hardhat is Now Compiling Smart Contracts" )
+
+		await hre.run("compile");
 		
 		const [ file_IPFSHashCID, logo_url ] = await pinFileToIPFS( image )
 		console.log( 'Image IPFS CID: ' + file_IPFSHashCID )
@@ -41,8 +41,8 @@ const main = async ( owner, description, minterName, timelockName, governorName,
 			"description": description,
 			"image": DAOlogo_URI, //or ipfs file
 			"external_link": "https://codesport.io",
-			"seller_fee_basis_points": 2000, // Indicates a 20% seller fee.
-			"fee_recipient": owner // Where seller fees will be paid to.
+			"seller_fee_basis_points": 2000, // Indicates a 20% seller fee. OpenSea caps at XYZ %
+			"fee_recipient": customerAddress // Where seller fees will be paid to.
 		}
 
 	//	let contract_metadataURI  = Buffer.from(JSON.stringify({contract_metadata})).toString("base64")
@@ -54,15 +54,16 @@ const main = async ( owner, description, minterName, timelockName, governorName,
 
 		console.log('Minter Meta Data CID: ' + metadata_IPFSHashCID )
 
-		const contract_metadataURI = 'ipfs://' + metadata_IPFSHashCID
+		//const contract_metadataURI = 'ipfs://' + metadata_IPFSHashCID
 
+		const [minterAddress, deployerAddress] = await deployMinter(minterName, metadata_url )
 
-		const minterAddress = await deployMinter(minterName, metadata_url )
-
-		const timelockAddress = await deployTimelock( timelockName, owner /* , admin*/)
+		const timelockAddress = await deployTimelock( timelockName, customerAddress /* , admin*/)
 
 		const governorAddress = await deployGovernor( governorName, minterAddress, timelockAddress)
-		//const timelockAddress = deployTimelock (owner, admin)
+		//const timelockAddress = deployTimelock (customerAddress, admin)
+
+		await configureTimeLock( timelockName, timelockAddress, governorAddress, deployerAddress )
 
 		return [logo_url, metadata_url, minterAddress, timelockAddress, governorAddress]
 
@@ -76,9 +77,8 @@ const main = async ( owner, description, minterName, timelockName, governorName,
 }
 
 
-const deployMinter = async ( minterName, contract_metadataURI  )=> {
+const deployMinter = async ( minterName, contract_metadataURI, customerAddress  )=> {
 
-    //const [owner] = await hre.ethers.getSigners();
     const factory = await hre.ethers.getContractFactory( minterName );
 
     const contract = await factory.deploy(contract_metadataURI, { value:  hre.ethers.utils.parseEther("0.03") }); //deploy  contract to the blockchain
@@ -92,17 +92,26 @@ const deployMinter = async ( minterName, contract_metadataURI  )=> {
 
 	console.log('Reading Balance of deployed minter: ' +  balance  )	
 
-	return contract.address
+	//	//TODO: Transfer Minter Ownership to Customer --Make customer owner of minter 
+
+	const deployerAddress = await contract.owner()
+	console.log('Current Owner of Minter: ' + await deployerAddress )
+
+	// const transfer = await minter_contract.transferOwnership( customerAddress )
+	// await transfer.wait()
+	//console.log('New Owner of Minter: ' + await contract.owner() )
+
+	return [ contract.address, deployerAddress]
 
 }
 
 
-const deployTimelock = async (timelockName, owner /*, admin*/) =>{
- 
+const deployTimelock = async (timelockName, /*customerAddress , admin*/) =>{
+ 	
+	const MIN_DELAY = 3600 // 1 hour - after a vote passes, you have 1 hour before you can enact
+	
 	const factory = await hre.ethers.getContractFactory( timelockName );
-
-	//an array of proposers and executors
-	const contract = await factory.deploy( 1, [owner, /* admin */], [ owner, /*admin*/]);
+	const contract = await factory.deploy( MIN_DELAY, [ /* proposers admin addresses: owner, customerAddress */], [  /*  executer admin addresses */]);
 	await contract.deployed();
   
 	console.log("Timelock deployed TO:", contract.address);
@@ -115,10 +124,19 @@ const deployTimelock = async (timelockName, owner /*, admin*/) =>{
 
 const deployGovernor = async ( governorName, minterAddress, timelockAddress ) =>{
 
-    const factory = await hre.ethers.getContractFactory( governorName);
+    const VOTING_PERIOD  = 45818 //Blocks = 1 week - how long the vote lasts. 
+    const VOTING_DELAY   = 1 // 1 Block = 13.2 seconds - How many blocks till a proposal vote becomes active
+    const QUORUM_PERCENT = 4 // Need 4% of voters to pass
 
-    //minter token address, timelock contract address
-    const contract = await factory.deploy( minterAddress, timelockAddress );
+    const factory = await hre.ethers.getContractFactory( governorName);
+	contract = await factory.deploy(
+		minterAddress, 
+		timelockAddress, 
+		QUORUM_PERCENT, 
+		VOTING_PERIOD,
+		VOTING_DELAY
+	)
+
     await contract.deployed();
 
     console.log("Governor deployed TO: ", contract.address);
@@ -127,6 +145,29 @@ const deployGovernor = async ( governorName, minterAddress, timelockAddress ) =>
    return contract.address
 
 }  
+
+
+
+const configureTimeLock = async( timeLockName, timeLockAddress, governorAddress, deployerAddress ) => {
+
+	//getContractAt https://ethereum.stackexchange.com/a/114051/3506
+	const timeLockContract = await hre.ethers.getContractAt ( timeLockName, timeLockAddress );
+
+	//TODO: Configure TimeLock Roles --
+	const ADDRESS_ZERO = '0x0000000000000000000000000000000000000000';
+	const proposerRole = await  timeLockContract.PROPOSER_ROLE();
+	const executorRole = await  timeLockContract.EXECUTOR_ROLE();
+	const adminRole = await  timeLockContract.TIMELOCK_ADMIN_ROLE();
+
+	await timeLockContract.grantRole(proposerRole, governorAddress );
+	await timeLockContract.grantRole(executorRole, ADDRESS_ZERO);
+	await timeLockContract.revokeRole(adminRole, deployerAddress );
+
+	console.log("Successfully configured TimeLock according to OpenZeppelin's conventions")
+
+}
+
+	//TODO:  Add Option to Pin to NFT Storage
 
 
 const  pinFileToIPFS = async ( logo ) => {

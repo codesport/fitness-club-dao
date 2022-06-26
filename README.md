@@ -1,13 +1,26 @@
-**Attribution:** This dApp and its accompanying "litepaper" were created by **Marcos (Marcus) A. B.** His GitHub username is [codesport](https://github.com/codesport/)
+
+* **NB:** You're currently viewing the latest work-in-progress branch: `transfer-ownership`  
+
+* **Attribution:** This dApp and its accompanying "litepaper" were created by **Marcos (Marcus) A. B.** His GitHub username is [codesport](https://github.com/codesport/)
+
 
 # Navigation
 
+* [Unit Testing Results: One-Stop DAO Launchpad and Governance Destination](#unit-testing-results-one-stop-dao-launchpad-and-governance-destination)
 * [Overview](#overview)
 * [Background: A Novel Use Case for ERC-721 Tokens](#background-a-novel-use-case-for-erc-721-tokens)
 * [How It Works](#how-it-works)
 * [How It Is Made](#how-its-made)
 * [Frontend](#frontend)
 * [Litepaper](https://github.com/codesport/fitness-club-dao/blob/master/4-11-2022-Fitness-Ventures-litepaper.pdf)
+
+
+# Unit Testing Results: One-Stop DAO Launchpad and Governance Destination
+
+
+![Unit Testing](https://github.com/codesport/fitness-club-dao/blob/transfer-ownership/frontend/src/images/6-25-2022-fitness-ventures-unit-tests.png?raw=true "DAO Governance Unit Testing")
+
+In unit tests `ERC721Minter.sol` and `Box.sol` were transferred to TimeLock. This forced Goverance (i.e., voting) to mint new NFTs and interact with Box contract. For `Box.sol`, Funds were deposited and withdrawn, and a public state variable was changed.
 
 
 # Overview
@@ -46,7 +59,7 @@ Through the form-based UI, club creators are able customize:
 4. Member Cost (of issuing memberships as NFTs)
 5. Description
 
-This project imports, uses, and customizes several Open Zeppellin templates to build a DAO based on audited code and accepted industry best practices. 
+This project imports, uses, and customizes several OpenZeppelin templates to build a DAO based on audited code and accepted industry best practices. 
 
 Customizations were made to the minter contract order to:
 

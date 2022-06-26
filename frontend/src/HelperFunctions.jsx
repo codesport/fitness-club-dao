@@ -370,7 +370,7 @@ const getContractURI = async (axios, output ) =>{
 //Named Exports
 export { handleShutDown, handleWithdrawToOwner, handleSetTotalSupply, handleSetSalesPrice, showNetwork, handleDeployContract, handleMintNFT, getExternalData, getContractURI }
 
-// /// Persist state after session reload: Hotload contract from sesion storage:
+// /// 1. Persist state after session reload: Hotload contract from sesion storage:
 
 //https://stackoverflow.com/a/44190532
 //https://www.google.com/search?q=how+save+state+after+page+reload+in+react
@@ -381,12 +381,14 @@ export { handleShutDown, handleWithdrawToOwner, handleSetTotalSupply, handleSetS
 //https://www.google.com/search?q=check+if+browser+localstorage+variable+is+set+in+javascript+-php
 //
 
+// // 2. Read NFT balances from Wallet
+
 // https://ethereum.stackexchange.com/questions/32755/how-to-read-all-token-balances-from-wallet
 // https://ethereum.stackexchange.com/questions/112271/implementing-ierc721enumerable-interface
 // https://www.reddit.com/r/ethdev/comments/lt8792/how_to_find_all_erc721_tokens_of_a_specific/
 // https://ethereum.stackexchange.com/questions/103442/showcase-all-nfts-a-user-has
 // https://docs.openzeppelin.com/contracts/3.x/api/token/erc721#IERC721Enumerable-tokenOfOwnerByIndex-address-uint256-
-
+// https://ethereum.stackexchange.com/questions/54959/list-erc721-tokens-owned-by-a-user-on-a-web-page
 
 //// Real Answer: https://ethereum.stackexchange.com/a/95006
 //// Explainer: https://ethereum.stackexchange.com/a/112091
@@ -397,7 +399,7 @@ export { handleShutDown, handleWithdrawToOwner, handleSetTotalSupply, handleSetS
 //     // No tokens owned by user
 // }
 
-//Payment Splitter
+// // 3. Payment Splitter
 //https://www.google.com/search?q=how+to+add+payment+splitter+to+a+contract
 //https://medium.com/codex/how-to-use-openzeppelins-paymentsplitter-8ba8de09dbf
 //https://medium.com/coinmonks/create-an-erc20-token-payment-splitting-smart-contract-c79436470ccc
@@ -408,6 +410,11 @@ export { handleShutDown, handleWithdrawToOwner, handleSetTotalSupply, handleSetS
 //https://ethereum.stackexchange.com/questions/110924/how-to-properly-implement-a-contracturi-for-on-chain-nfts
 //https://docs.opensea.io/docs/contract-level-metadata
 //https://www.google.com/search?q=is+%22contractURI%22+an+erc-721+standard
+
+
+// //4. NFT Market Place:
+
+// Nader Dabit: https://dev.to/edge-and-node/building-scalable-full-stack-apps-on-ethereum-with-polygon-2cfb
 
 
 //Fetch Data APIS          
@@ -440,11 +447,39 @@ export { handleShutDown, handleWithdrawToOwner, handleSetTotalSupply, handleSetS
 
 //https://docs.ethers.io/v4/api-contract.html#creating-a-contract-factory
 // new ethers . ContractFactory ( abi.abi , abi.bytecode [ , signer ] )
-
-//https://docs.ethers.io/v5/api/contract/example/#example-erc-20-contract--deploying-a-contract
 /*
+https://docs.ethers.io/v5/api/contract/example/#example-erc-20-contract--deploying-a-contract
+
 
 const factory = new ethers.ContractFactory(abi, bytecode, signer)
 const contract = await factory.deploy(parseUnits("100"));
 await contract.deployTransaction.wait();
+
+Patrick Question: https://forum.openzeppelin.com/t/governance-contract-or-timelock-contract-which-comes-first/17048/3
+
+Built in transfer function in: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts//access/Ownable.sol
+
+
+Proxy Requests Durng Development:
+
+Make requests to Node Backend server without having to provide the origin it is running on (http://localhost:3001) 
+every time we make a network request to it:
+
+https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-the-complete-guide/
+
+Create React App:
+// client/package.json
+"proxy": "http://localhost:3001",
+
+Vite: https://stackoverflow.com/a/64750362/946957
+vite.config.js
+ proxy: {
+      '/api': {
+           target: 'https://localhost:44305',
+           changeOrigin: true,
+           secure: false,      
+           ws: true,
+       }
+  }     
+
 */
