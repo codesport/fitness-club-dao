@@ -1,7 +1,7 @@
 
 * **Attribution:** This dApp and its accompanying "litepaper" were created by **Marcos (Marcus) A. B.** His GitHub username is [codesport](https://github.com/codesport/)
 
-* **NB:** The `transfer-ownership`  test branch has been merged with the master branch. `transfer-ownership` and frontend-deploy branches are now outdated and may be deleted soon.
+* **NB:** The `transfer-ownership`  test branch has been merged with the master branch. `transfer-ownership` and `frontend-deplo`y branches are now outdated and may be deleted soon.
 
 # Navigation
 
