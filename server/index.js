@@ -50,7 +50,9 @@ app.post('/deploy-dao', upload.single('file'), async (req, res, next) => {
     console.log('Deploying to: ' + process.env.HARDHAT_NETWORK)
 
     console.log(req.file, req.body)
-    //NB: owner = address of connected metamask account 
+    //NB: owner = address of connected metamask account on frontend
+    //TODO: change owner to customerAddress on frontend (HelperFunctions)
+    //TODO: change owner to customerAddress on baclend (build-contracts and index)
     const [owner, description, minterName, timelockName, governorName] = await build.buildDAO(req.body.owner, req.body.name, req.body.ticker, req.body.description, req.body.price, req.body.supply )
 
     //console.log("Read Payload data for building dao Express.js: " + payload) //console.log(req.file)
