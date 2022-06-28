@@ -1,7 +1,7 @@
 
 * **Attribution:** This dApp and its business plan were created by **Marcos (Marcus) A. B.** His GitHub username is [codesport](https://github.com/codesport/)
 
-* **NB:** Version bump from 0.1.0-alpha to 0.1.5-alpha. See [release notes](https://github.com/codesport/fitness-club-dao/releases/tag/mvp2): 
+* **NB:** Version bump from 0.1.0-alpha to 0.1.5-alpha. See [release notes](https://github.com/codesport/fitness-club-dao/releases/tag/mvp2).
 
 # Navigation
 
