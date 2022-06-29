@@ -21,13 +21,15 @@ It allows:
 
 1. Creation of a fitness club (organized as a DAO) and 
 2. Fee-based sign-up of new members to an existing club by means of an NFT minter.
+3. Read functions accessble to anyone. Write functions accesible to Club administrators
 
-Please refer to the Youtube video for links to the timestamped and minted DAO contracts.
+[Click](https://youtu.be/xqF_BhXmh-4) the image below for a live demo of contract read/write functions:
 
-Below is a screenshot of the application's homepage running on the Express backend:
+[![Fitness Ventures Sports Clubs](https://img.youtube.com/vi/AoLFELxK-1w/maxresdefault.jpg)](https://youtu.be/xqF_BhXmh-4)
 
+Please refer to the above YouTube video for Polyscan links to verifiy the smart contract deployments.
 
-![Fitness Ventures](https://github.com/codesport/fitness-club-dao/blob/master/frontend/src/images/girl2.png "Fitness Ventures Homepage")
+A comprehensive, 11.5 minute demo video is [here](https://youtu.be/AoLFELxK-1w).
 
 # Unit Testing Results: One-Stop DAO Launchpad and Governance Destination
 
