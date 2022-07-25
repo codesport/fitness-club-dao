@@ -25,13 +25,13 @@ It allows:
 
 [Click](https://youtu.be/xqF_BhXmh-4) the image below for a live demo of contract read/write functions:
 
-[![Fitness Ventures Sports Clubs](https://github.com/codesport/fitness-club-dao/blob/master/frontend/src/images/youtube-fitness-guy)](https://youtu.be/xqF_BhXmh-4)
+[![Fitness Ventures Sports Clubs](./frontend/src/images/splash.png)](https://youtu.be/xqF_BhXmh-4)
 
 ## Bit Torrent Chain (BTTC) Deployment & BTTC-SCAN Verification
 
-Minter Contract deployed TO: [0xfE1B8bBF112a9D926333D31FD4b6eC97dB013b5d](https://testscan.bt.io/#/contract/0xfE1B8bBF112a9D926333D31FD4b6eC97dB013b5d)
-TimeLock Contract deployed TO: [0x5Bb8ACE1bE38Aa97Bf81021F7E27a18dE0f9595E](https://testscan.bt.io/#/contract/0x5Bb8ACE1bE38Aa97Bf81021F7E27a18dE0f9595E)
-Governor Contract deployed TO:  [0x4FBbf859E9870bc1e6C73C6064C6cc14078011dE](https://testscan.bt.io/#/contract/0x4FBbf859E9870bc1e6C73C6064C6cc14078011dE)
+* Minter Contract deployed TO: [0xfE1B8bBF112a9D926333D31FD4b6eC97dB013b5d](https://testscan.bt.io/#/contract/0xfE1B8bBF112a9D926333D31FD4b6eC97dB013b5d)
+* TimeLock Contract deployed TO: [0x5Bb8ACE1bE38Aa97Bf81021F7E27a18dE0f9595E](https://testscan.bt.io/#/contract/0x5Bb8ACE1bE38Aa97Bf81021F7E27a18dE0f9595E)
+* Governor Contract deployed TO:  [0x4FBbf859E9870bc1e6C73C6064C6cc14078011dE](https://testscan.bt.io/#/contract/0x4FBbf859E9870bc1e6C73C6064C6cc14078011dE)
 
 DAO Logo on IPFS: [via Pinata](https://gateway.pinata.cloud/ipfs/QmQT9ixtB9rDSZgrkCza6onTzNULsz3XAftCbGhu1JfAsg)
 
