@@ -310,6 +310,7 @@ const showNetwork = (network) => {
     const ethLogo = 'https://smartcontract.imgix.net/icons/ethereum.svg?auto=compress%2Cformat*';
     const polygonLogo = 'https://smartcontract.imgix.net/icons/polygon.svg?auto=compress%2Cformat*';
     const meterLogo = 'https://meter.io/assets/meter-logo-d.svg'
+    const bttcLogo = 'https://s2.coinmarketcap.com/static/img/coins/200x200/3718.png'
 
     try{
         if (  [42,3,4,5,1,4].includes( network.chainId ) ){
@@ -319,6 +320,11 @@ const showNetwork = (network) => {
         }else if ( [80001].includes( network.chainId ) ) {
 
             return{ success: true, status: <span id="wallet-network-info"><img className="network-logo-sm" src={polygonLogo} />Polygon Mumbai</span> , networkName: "Polygon Mumbai" }
+
+        }else if ([1029].includes( network.chainId ) ){
+
+            return{ success: true, status: <span id=""><img className="network-logo-sm" src={bttcLogo} style={{width:"45px", height:"45px"}}/></span>, networkName: "BTTC Donaut" }
+
 
         }else if ([83].includes( network.chainId ) ){
 
