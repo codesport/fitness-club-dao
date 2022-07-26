@@ -1,13 +1,16 @@
-**Attribution:** This dApp and its accompanying "litepaper" were created by **Marcos (Marcus) A. B.** His GitHub username is [codesport](https://github.com/codesport/)
+
+* **Attribution:** This dApp and its business plan were created by **Marcos (Marcus) A. B.** His GitHub username is [codesport](https://github.com/codesport/)
+
+* **NB:** Version bump from 0.1.0-alpha to 0.1.5-alpha. See [release notes](https://github.com/codesport/fitness-club-dao/releases/tag/mvp2).
 
 # Navigation
 
 * [Overview](#overview)
+* [Unit Testing Results: One-Stop DAO Launchpad and Governance Destination](#unit-testing-results-one-stop-dao-launchpad-and-governance-destination)
 * [Background: A Novel Use Case for ERC-721 Tokens](#background-a-novel-use-case-for-erc-721-tokens)
 * [How It Works](#how-it-works)
 * [How It Is Made](#how-its-made)
 * [Frontend](#frontend)
-* [Litepaper](https://github.com/codesport/fitness-club-dao/blob/master/4-11-2022-Fitness-Ventures-litepaper.pdf)
 
 
 # Overview
@@ -18,13 +21,32 @@ It allows:
 
 1. Creation of a fitness club (organized as a DAO) and 
 2. Fee-based sign-up of new members to an existing club by means of an NFT minter.
+3. Read functions accessble to anyone. Write functions accesible to Club administrators
 
-Please refer to the Youtube video for links to the timestamped and minted DAO contracts.
+[Click](https://youtu.be/xqF_BhXmh-4) the image below for a live demo of contract read/write functions:
 
-Below is a screenshot of the application's homepage running on the Express backend:
+[![Fitness Ventures Sports Clubs](./frontend/src/images/splash.png)](https://youtu.be/xqF_BhXmh-4)
+
+## Bit Torrent Chain (BTTC) Deployment & BTTC-SCAN Verification
+
+* Minter Contract deployed TO: [0xfE1B8bBF112a9D926333D31FD4b6eC97dB013b5d](https://testscan.bt.io/#/contract/0xfE1B8bBF112a9D926333D31FD4b6eC97dB013b5d)
+* TimeLock Contract deployed TO: [0x5Bb8ACE1bE38Aa97Bf81021F7E27a18dE0f9595E](https://testscan.bt.io/#/contract/0x5Bb8ACE1bE38Aa97Bf81021F7E27a18dE0f9595E)
+* Governor Contract deployed TO:  [0x4FBbf859E9870bc1e6C73C6064C6cc14078011dE](https://testscan.bt.io/#/contract/0x4FBbf859E9870bc1e6C73C6064C6cc14078011dE)
+
+DAO Logo on IPFS: [via Pinata](https://gateway.pinata.cloud/ipfs/QmQT9ixtB9rDSZgrkCza6onTzNULsz3XAftCbGhu1JfAsg)
+
+## Polygon Mumbai Deployment
+
+Please refer to the above YouTube video for Polyscan links to verifiy the smart contract deployments.
+
+A comprehensive, 11.5 minute demo video is [here](https://youtu.be/AoLFELxK-1w).
+
+# Unit Testing Results: One-Stop DAO Launchpad and Governance Destination
 
 
-![Fitness Ventures](https://github.com/codesport/fitness-club-dao/blob/master/frontend/src/images/girl2.png "Fitness Ventures Homepage")
+![Unit Testing](https://github.com/codesport/fitness-club-dao/blob/master/frontend/src/images/6-25-2022-fitness-ventures-unit-tests.png?raw=true "DAO Governance Unit Testing")
+
+In unit tests `ERC721Minter.sol` and `Box.sol` were transferred to TimeLock. This forced Goverance (i.e., voting) to mint new NFTs and interact with Box contract. For `Box.sol`, Funds were deposited and withdrawn, and a public state variable was changed.
 
 ## Background: A Novel Use Case for ERC-721 Tokens 
 
@@ -46,7 +68,7 @@ Through the form-based UI, club creators are able customize:
 4. Member Cost (of issuing memberships as NFTs)
 5. Description
 
-This project imports, uses, and customizes several Open Zeppellin templates to build a DAO based on audited code and accepted industry best practices. 
+This project imports, uses, and customizes several OpenZeppelin templates to build a DAO based on audited code and accepted industry best practices. 
 
 Customizations were made to the minter contract order to:
 
@@ -85,6 +107,8 @@ Express is used to  call a custom bash script. The script serves as a workhorse 
 Hardhat is the the star of the show. It compiles and deploys the contracts to the block chain. Hardhat has a JS library that allows for native non command line use on node. 
 
 ### Frontend
+
+The UI is itentionally rudimentry.  It was quickly protyped to show functionality required for an MVP.
 
 The frontend uses React functional components.  I began learning React in August 2020 using a strict [Model-View-Controller (MVC)](https://github.com/codesport/admin-panel)] design pattern with a Class Component a the Controller.  With that pattern, I would send props downstream (prop-drilling) to my functional components. Facebook's React team now encourages devs to use Functional Components instead.
 

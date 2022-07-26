@@ -30,7 +30,7 @@ const FormDAO =   ( {callback} ) =>{
                     form="buildDAO"
                 />
                 <p> </p>
-                <label>Team Symbol (BFT Symbol)</label>
+                <label>Team Symbol (NFT Symbol)</label>
                 <input 
                     type='text'
                     name='symbol'
