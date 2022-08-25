@@ -3,7 +3,7 @@
 
 * **NB:** Version bump from 0.1.0-alpha to 0.1.5-alpha. See [release notes](https://github.com/codesport/fitness-club-dao/releases/tag/mvp2).
 
-**Short Demo Video**: https://youtu.be/pNOI2JKv-CA
+* **Short Demo Video**: https://youtu.be/pNOI2JKv-CA
 
 # Navigation
 
@@ -25,11 +25,11 @@ It allows:
 2. Fee-based sign-up of new members to an existing club by means of an NFT minter.
 3. Read functions accessble to anyone. Write functions accesible to club administrators
 
-Videos:
+## Videos
 
 [Demo](https://youtu.be/xqF_BhXmh-4) of contract read/write functions.
 
-[Demo]([https://youtu.be/xqF_BhXmh-4](https://youtu.be/pNOI2JKv-CA)) of DAO deployment and Membership Minting.
+[Demo](https://youtu.be/pNOI2JKv-CA)) of DAO deployment and Membership Minting.
 
 [![Fitness Ventures Sports Clubs](./frontend/src/images/splash.png)](https://youtu.be/xqF_BhXmh-4)
 
