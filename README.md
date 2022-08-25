@@ -3,6 +3,8 @@
 
 * **NB:** Version bump from 0.1.0-alpha to 0.1.5-alpha. See [release notes](https://github.com/codesport/fitness-club-dao/releases/tag/mvp2).
 
+**Short Demo Video**: https://youtu.be/pNOI2JKv-CA
+
 # Navigation
 
 * [Overview](#overview)
@@ -21,23 +23,36 @@ It allows:
 
 1. Creation of a fitness club (organized as a DAO) and 
 2. Fee-based sign-up of new members to an existing club by means of an NFT minter.
-3. Read functions accessble to anyone. Write functions accesible to Club administrators
+3. Read functions accessble to anyone. Write functions accesible to club administrators
 
-[Click](https://youtu.be/xqF_BhXmh-4) the image below for a live demo of contract read/write functions:
+Videos:
+
+[Demo](https://youtu.be/xqF_BhXmh-4) of contract read/write functions.
+
+[Demo]([https://youtu.be/xqF_BhXmh-4](https://youtu.be/pNOI2JKv-CA)) of DAO deployment and Membership Minting.
 
 [![Fitness Ventures Sports Clubs](./frontend/src/images/splash.png)](https://youtu.be/xqF_BhXmh-4)
+
+
+DAO Logo on IPFS: [via Pinata](https://gateway.pinata.cloud/ipfs/QmQT9ixtB9rDSZgrkCza6onTzNULsz3XAftCbGhu1JfAsg)
+
+## Polygon Mumbai Deployment: Happy's Running Club
+
+IPFS Pins for:
+   - Membership NFT URL:  https://ipfo.io/ipfs/QmdXzqtFGaPQ5ePef6oNMwPujPb6aHhYp9c116A56i4Hrg
+   - Team Logo URL:  https://ipfo.io//ipfs/QmXwGr3m845u7uLT1TFYav93PGZ6iiZr4HvkxacCcYbJGN
+   - Meta Data URL: https://ipfo.io/ipfs/QmW5nzum3UjJRMEVSJHtcbcygH9A8GNmddhLWsbdq8XG7T
+   - 
+Polygon Scan Addresses and  Verifications:
+   - Minter: [0x76A9CF29A875242C5A6134438d851b227216E23e](https://mumbai.polygonscan.com/address/0x76A9CF29A875242C5A6134438d851b227216E23e)
+   - Timelock: [0xa0a49Eb06d13D2c10769f824FF8bA7aa7132F2E8](https://mumbai.polygonscan.com/address/0xa0a49Eb06d13D2c10769f824FF8bA7aa7132F2E8)
+   - Governor: [0x8D0507d79302366BD36d3dd24978b5b98f560371](https://mumbai.polygonscan.com/address/0x8D0507d79302366BD36d3dd24978b5b98f560371)
 
 ## Bit Torrent Chain (BTTC) Deployment & BTTC-SCAN Verification
 
 * Minter Contract deployed TO: [0xfE1B8bBF112a9D926333D31FD4b6eC97dB013b5d](https://testscan.bt.io/#/contract/0xfE1B8bBF112a9D926333D31FD4b6eC97dB013b5d)
 * TimeLock Contract deployed TO: [0x5Bb8ACE1bE38Aa97Bf81021F7E27a18dE0f9595E](https://testscan.bt.io/#/contract/0x5Bb8ACE1bE38Aa97Bf81021F7E27a18dE0f9595E)
 * Governor Contract deployed TO:  [0x4FBbf859E9870bc1e6C73C6064C6cc14078011dE](https://testscan.bt.io/#/contract/0x4FBbf859E9870bc1e6C73C6064C6cc14078011dE)
-
-DAO Logo on IPFS: [via Pinata](https://gateway.pinata.cloud/ipfs/QmQT9ixtB9rDSZgrkCza6onTzNULsz3XAftCbGhu1JfAsg)
-
-## Polygon Mumbai Deployment
-
-Please refer to the above YouTube video for Polyscan links to verifiy the smart contract deployments.
 
 A comprehensive, 11.5 minute demo video is [here](https://youtu.be/AoLFELxK-1w).
 
